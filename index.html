@@ -18,17 +18,19 @@
 
         :root {
             --bg-dark: #121212;
-            --bg-card: rgba(30, 30, 30, 0.85); /* Kartlar arkasındaki görseli hafif göstersin diye yarı şeffaf yapıldı */
+            --bg-card: rgba(30, 30, 30, 0.85); 
             --accent-yellow: #ccff00; /* PDR Işık Sarısı */
             --text-light: #ffffff;
             --text-gray: #a0a0a0;
             --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
         }
 
-        /* Tüm Sayfayı Kaplayan ve Sabit Kalan Arka Plan */
+        /* Varsayılan Mobil/Genel Arka Plan Ayarı */
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), 
+                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat top center;
+            background-size: contain; /* Görselin tamamı mobil ekrana sığsın */
+            background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
         }
@@ -300,15 +302,23 @@
             font-weight: 700;
         }
 
-        /* Mobil Uyum */
+        /* MASAÜSTÜ VE BÜYÜK EKRANLAR İÇİN PARALLAX AYARI */
+        @media (min-width: 769px) {
+            body {
+                background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), 
+                            url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center center fixed;
+                background-size: cover; /* Masaüstünde tam ekran kaplasın */
+            }
+        }
+
+        /* MOBİL UYUM */
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
             nav { display: none; }
-            .hero-content h1 { font-size: 30px; }
+            .hero-content h1 { font-size: 28px; }
             .hero-content p { font-size: 15px; }
             .social-links { flex-direction: column; gap: 8px; }
             .social-btn { justify-content: center; }
-            body { background-attachment: scroll; }
         }
     </style>
 </head>

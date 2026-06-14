@@ -73,7 +73,7 @@
             color: var(--accent-yellow);
         }
 
-        /* Giriş Ekranı (Hero Section) - Arka planı body'e aldığımız için burası şeffaf yapıldı */
+        /* Giriş Ekranı (Hero Section) */
         .hero {
             height: 100vh;
             display: flex;
@@ -144,22 +144,25 @@
             margin: 10px auto 0 auto;
         }
 
-        /* Hizmetlerimiz Bölümü */
+        /* Hizmetlerimiz Bölümü (3lü Sütun Yapısı) */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 20px;
         }
 
         .service-card {
             background-color: var(--bg-card);
-            padding: 40px 30px;
+            padding: 40px 25px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px); /* Arkadaki dükkan görselini şık şekilde flulaştırır */
+            backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .service-card:hover {
@@ -169,14 +172,14 @@
         }
 
         .service-card h3 {
-            font-size: 22px;
+            font-size: 21px;
             margin-bottom: 15px;
             color: var(--text-light);
         }
 
         .service-card p {
             color: var(--text-gray);
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* İletişim Bölümü */
@@ -305,7 +308,7 @@
             .hero-content p { font-size: 15px; }
             .social-links { flex-direction: column; gap: 8px; }
             .social-btn { justify-content: center; }
-            body { background-attachment: scroll; } /* Mobil cihazlarda kasma yapmaması için sabit arka planı kapatıyoruz */
+            body { background-attachment: scroll; }
         }
     </style>
 </head>
@@ -341,6 +344,10 @@
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
                 <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+            </div>
+            <div class="service-card">
+                <h3>3D Yedek Parça Üretimi</h3>
+                <p>Piyasada bulunması zor, üretimi durmuş ya da yüksek maliyetli olan kırık plastik parçaları, tırnakları ve özel aparatları ileri teknoloji 3D modelleme ve dayanıklı baskı teknikleriyle sıfırdan üretiyoruz.</p>
             </div>
         </div>
     </section>
@@ -388,7 +395,7 @@
         <h2>İletişim & Konum</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Dükkan Bilgileri</h3>
+                <h3>İş Yeri Bilgilerimiz</h3>
                 <p><strong>Adres:</strong> Gümüşçeşme Mahallesi, 14. Cumhuriyet Caddesi No:12A (Emlak Konutları Arkası), Altıeylül / BALIKESİR</p>
                 <p><strong>Telefon:</strong> +90 (551) 890 40 64</p>
                 <p><strong>Çalışma Saatleri:</strong> Pazartesi - Pazar: 09:00 - 19:00</p>

@@ -18,15 +18,17 @@
 
         :root {
             --bg-dark: #121212;
-            --bg-card: #1e1e1e;
+            --bg-card: rgba(30, 30, 30, 0.85); /* Kartlar arkasındaki görseli hafif göstersin diye yarı şeffaf yapıldı */
             --accent-yellow: #ccff00; /* PDR Işık Sarısı */
             --text-light: #ffffff;
             --text-gray: #a0a0a0;
             --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
         }
 
+        /* Tüm Sayfayı Kaplayan ve Sabit Kalan Arka Plan */
         body {
-            background-color: var(--bg-dark);
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center center fixed;
+            background-size: cover;
             color: var(--text-light);
             line-height: 1.6;
         }
@@ -71,7 +73,7 @@
             color: var(--accent-yellow);
         }
 
-        /* Giriş Ekranı (Hero Section) - Kesinleşen Doğrudan Resim Linki */
+        /* Giriş Ekranı (Hero Section) - Arka planı body'e aldığımız için burası şeffaf yapıldı */
         .hero {
             height: 100vh;
             display: flex;
@@ -79,7 +81,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center center/cover;
+            background: transparent;
         }
 
         .hero-content h1 {
@@ -87,6 +89,7 @@
             font-weight: 700;
             margin-bottom: 15px;
             line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.7);
         }
 
         .hero-content h1 span {
@@ -98,6 +101,7 @@
             color: var(--text-gray);
             max-width: 600px;
             margin: 0 auto 30px auto;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
         }
 
         /* Butonlar */
@@ -111,6 +115,7 @@
             text-decoration: none;
             font-size: 16px;
             transition: 0.3s transform ease;
+            box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3);
         }
 
         .btn-main:hover {
@@ -119,7 +124,7 @@
 
         /* Sayfa Bölümleri Genel */
         section {
-            padding: 80px 5%;
+            padding: 100px 5%;
             text-align: center;
         }
 
@@ -127,6 +132,7 @@
             font-size: 32px;
             margin-bottom: 40px;
             position: relative;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
 
         section h2::after {
@@ -150,13 +156,16 @@
             background-color: var(--bg-card);
             padding: 40px 30px;
             border-radius: 12px;
-            border: 1px solid #2a2a2a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px); /* Arkadaki dükkan görselini şık şekilde flulaştırır */
+            -webkit-backdrop-filter: blur(5px);
             transition: 0.3s;
         }
 
         .service-card:hover {
             border-color: var(--accent-yellow);
             transform: translateY(-5px);
+            background-color: rgba(30, 30, 30, 0.95);
         }
 
         .service-card h3 {
@@ -180,6 +189,15 @@
             margin: 0 auto;
         }
 
+        .contact-info {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
         .contact-info h3 {
             font-size: 24px;
             margin-bottom: 20px;
@@ -195,7 +213,7 @@
         .social-media-box {
             margin-top: 25px;
             padding-top: 15px;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .social-media-box p {
@@ -214,7 +232,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: #1e1e1e;
+            background-color: rgba(18, 18, 18, 0.8);
             color: var(--text-light);
             padding: 10px 18px;
             border-radius: 8px;
@@ -225,15 +243,16 @@
             transition: 0.3s;
         }
 
-        .social-btn.instagram:hover { border-color: #e1306c; color: #e1306c; background-color: rgba(225, 48, 108, 0.05); }
-        .social-btn.tiktok:hover { border-color: #ff0050; color: #ff0050; background-color: rgba(255, 0, 80, 0.05); }
-        .social-btn.facebook:hover { border-color: #1877f2; color: #1877f2; background-color: rgba(24, 119, 242, 0.05); }
+        .social-btn.instagram:hover { border-color: #e1306c; color: #e1306c; background-color: rgba(225, 48, 108, 0.1); }
+        .social-btn.tiktok:hover { border-color: #ff0050; color: #ff0050; background-color: rgba(255, 0, 80, 0.1); }
+        .social-btn.facebook:hover { border-color: #1877f2; color: #1877f2; background-color: rgba(24, 119, 242, 0.1); }
 
         .map-container iframe {
             width: 100%;
             height: 380px;
             border: 0;
             border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         /* Sabit WhatsApp Butonu */
@@ -263,7 +282,7 @@
 
         /* Footer (Alt Bilgi) */
         footer {
-            background-color: #0b0b0b;
+            background-color: rgba(11, 11, 11, 0.95);
             padding: 25px 5%;
             text-align: center;
             font-size: 13px;
@@ -286,6 +305,7 @@
             .hero-content p { font-size: 15px; }
             .social-links { flex-direction: column; gap: 8px; }
             .social-btn { justify-content: center; }
+            body { background-attachment: scroll; } /* Mobil cihazlarda kasma yapmaması için sabit arka planı kapatıyoruz */
         }
     </style>
 </head>
@@ -326,14 +346,14 @@
     </section>
 
     <!-- Öncesi / Sonrası Bölümü -->
-    <section id="portfolyo" style="background-color: #1a1a1a; padding: 60px 5%;">
+    <section id="portfolyo" style="padding: 60px 5%;">
         <h2>İşçilik Kalitemiz</h2>
-        <p style="color: var(--text-gray); margin-bottom: 40px;">Atölyemizde teslim aldığımız hasarlı araçların onarım sonrası kusursuz değişimi.</p>
+        <p style="color: var(--text-gray); margin-bottom: 40px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Atölyemizde teslim aldığımız hasarlı araçların onarım sonrası kusursuz değişimi.</p>
         
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1000px; margin: 0 auto;">
             
             <!-- 1. GÖRSEL ÇİFTİ -->
-            <div style="background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px;">
+            <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
                         <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Önce" style="width: 100%; height: 300px; object-fit: cover; display: block;">
@@ -347,7 +367,7 @@
             </div>
 
             <!-- 2. GÖRSEL ÇİFTİ -->
-            <div style="background: #1e1e1e; border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px;">
+            <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
                         <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Önce" style="width: 100%; height: 300px; object-fit: cover; display: block;">

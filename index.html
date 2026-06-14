@@ -26,12 +26,6 @@
 
         /* Tüm Cihazlar İçin Güvenli Arka Plan Yapısı */
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.96)), 
-                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover;
-            background-attachment: scroll; 
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
@@ -99,7 +93,7 @@
             color: var(--accent-yellow);
         }
 
-        /* Giriş Ekranı (Hero Section) */
+        /* Giriş Ekranı (Hero Section) ve Bilgisayar Arka Plan Düzeni */
         .hero {
             height: 100vh;
             display: flex;
@@ -107,7 +101,12 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background: transparent;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.93)), 
+                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
         }
 
         .hero-content h1 {
@@ -115,7 +114,7 @@
             font-weight: 700;
             margin-bottom: 15px;
             line-height: 1.2;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
         }
 
         .hero-content h1 span {
@@ -127,7 +126,7 @@
             color: var(--text-gray);
             max-width: 600px;
             margin: 0 auto 30px auto;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
         }
 
         /* Butonlar */
@@ -208,10 +207,10 @@
             font-size: 14px;
         }
 
-        /* YENİ FOTOĞRAF GALERİSİ CSS ALANLARI */
+        /* FOTOĞRAF GALERİSİ DÜZENİ (YAZISIZ VE AYRI KUTULAR) */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Masaüstünde yan yana tam 2 adet bağımsız kutu */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 25px;
             max-width: 1000px;
             margin: 0 auto;
@@ -236,31 +235,9 @@
 
         .portfolio-item img {
             width: 100%;
-            height: 320px; /* Tüm fotoğrafların hizası eşit ve nizami durması için sabit yükseklik */
+            height: 340px; 
             object-fit: cover;
             display: block;
-        }
-
-        .status-badge {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        .status-badge.before {
-            background: rgba(220, 53, 69, 0.95); /* Öncesi için net kırmızı */
-            color: #fff;
-        }
-
-        .status-badge.after {
-            background: var(--accent-yellow); /* Sonrası için parlak ışık sarısı */
-            color: #000;
         }
 
         /* İletişim Bölümü */
@@ -385,21 +362,8 @@
             font-weight: 700;
         }
 
-        /* BİLGİSAYAR / BÜYÜK EKRANLAR İÇİN OPTİMİZASYON */
-        @media (min-width: 769px) {
-            body {
-                background-attachment: fixed; /* Bilgisayarda akıcı parallax görünümü */
-                background-size: cover;
-            }
-        }
-
-        /* MOBİL UYUM VE ARKA PLAN/LOGO OPTİMİZASYONU */
+        /* MOBİL UYUM VE MERKEZİ LOGO OPTİMİZASYONU */
         @media (max-width: 768px) {
-            body {
-                background-attachment: scroll; 
-                background-size: contain; 
-                background-position: center top; 
-            }
             header { 
                 padding: 10px 4%; 
                 justify-content: center; 
@@ -419,16 +383,24 @@
                 height: 36px; 
                 max-width: 45px;
             } 
+
+            /* Mobil Açılışta Arka Plan Logosunu Tam Ortaya Almak İçin Kurallar */
+            .hero {
+                background-attachment: scroll;
+                background-position: center center; /* Ekranı tam dikey ve yatay ortalar */
+                background-size: cover; 
+            }
+
             .hero-content h1 { font-size: 26px; }
             .hero-content p { font-size: 14px; }
             
-            /* Mobil Galeri Kuralları */
+            /* Mobil Galeri Düzeni */
             .portfolio-grid {
-                grid-template-columns: 1fr; /* Mobilde fotoğraflar alt alta tek sıra sıralanır */
+                grid-template-columns: 1fr; 
                 gap: 20px;
             }
             .portfolio-item img {
-                height: 260px; /* Taşmayı önleyen estetik mobil yükseklik */
+                height: 280px; 
             }
 
             .social-links { flex-direction: column; gap: 8px; }
@@ -452,7 +424,7 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1>Aracınızın Orijinalliğini Koruyun,<br><span>Değerini Kaybettirmeyin.</span></h1>
             <p>Profesyonel Boyasız Göçük Onarımı (PDR) ve yüksek mukavemetli Plastik Kaynağı işleriniz için Balıkesir'deki güvenilir adresiniz.</p>
@@ -469,7 +441,7 @@
             </div>
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
-                <p>Kırık veya çatlak tamponlar, far ayakları, paneller and iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
             </div>
             <div class="service-card">
                 <h3>3D Yedek Parça Üretimi</h3>
@@ -485,23 +457,19 @@
         <div class="portfolio-grid">
             
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="1. İş Göçük Öncesi">
-                <span class="status-badge before">1. GÖÇÜK ÖNCESİ</span>
+                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Göçük Öncesi Durum">
             </div>
 
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="1. İş Onarım Sonrası">
-                <span class="status-badge after">1. ONARIM SONRASI</span>
+                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Onarım Sonrası Kusursuz Görünüm">
             </div>
 
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="2. İş Plastik Hasar">
-                <span class="status-badge before">2. PLASTİK HASAR</span>
+                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Parça Hasarlı Durum">
             </div>
 
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="2. İş Tamir Sonrası">
-                <span class="status-badge after">2. TAMİR SONRASI</span>
+                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Kaynak Sonrası Durum">
             </div>
 
         </div>
@@ -542,6 +510,26 @@
     <footer>
         <p>© 2026 <span>AUTOCARA</span> Boyasız Göçük Onarım. Tüm Hakları Saklıdır.</p>
     </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Kullanıcı siteye girdiğinde 1.2 saniye logoyu/başlığı görür, ardından akıcı bir şekilde 'hizmetler' alanına kayar.
+            setTimeout(() => {
+                const targetSection = document.getElementById('hizmetler');
+                if(targetSection) {
+                    // Header menüsünün yüksekliğini hesaba katarak tam hizada durmasını sağlar
+                    const headerOffset = 70; 
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 1200); 
+        });
+    </script>
 
 </body>
 </html>

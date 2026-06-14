@@ -6,76 +6,368 @@
     <title>AUTOCARA | Boyasız Göçük Onarım & Plastik Kaynağı</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        :root { --bg-dark: #121212; --bg-card: rgba(30, 30, 30, 0.85); --accent-yellow: #ccff00; --text-light: #ffffff; --text-gray: #a0a0a0; --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%); }
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
+        /* Temel Renkler ve Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(18, 18, 18, 0.98); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #2a2a2a; }
-        .brand-container { display: flex; align-items: center; gap: 10px; }
-        .logo-img { height: 42px; max-width: 50px; mix-blend-mode: screen; filter: brightness(1.2) contrast(1.1); }
-        .logo { font-size: 24px; font-weight: 700; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; }
-        nav a { color: var(--text-light); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
-        nav a:hover { color: var(--accent-yellow); }
+        :root {
+            --bg-dark: #121212;
+            --bg-card: rgba(30, 30, 30, 0.85); 
+            --accent-yellow: #ccff00; /* PDR Işık Sarısı */
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+        }
 
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.93)), url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png'); background-size: cover; background-position: center; background-attachment: fixed; }
-        .hero-content h1 { font-size: 42px; margin-bottom: 15px; }
-        .hero-content h1 span { color: var(--accent-yellow); }
-        .btn-main { display: inline-block; background-color: var(--accent-yellow); color: #000; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.3s; }
-        
-        section { padding: 100px 5%; text-align: center; }
-        section h2::after { content: ''; display: block; width: 50px; height: 3px; background-color: var(--accent-yellow); margin: 10px auto 0 auto; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
-        .service-card { background-color: var(--bg-card); padding: 40px 25px; border-radius: 12px; border: 1px solid #333; }
-        
-        /* FOTOĞRAF GALERİSİ (UZAKLAŞTIRILMIŞ) */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .portfolio-item { background: rgba(30, 30, 30, 0.9); border: 1px solid #333; border-radius: 12px; padding: 20px; }
-        .portfolio-item img { width: 100%; height: 320px; object-fit: contain; background-color: #000; border-radius: 8px; }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.98);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
 
-        /* İLETİŞİM BÖLÜMÜ EKSİKSİZ EKLENDİ */
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left; max-width: 1000px; margin: 0 auto; }
-        .contact-info { background-color: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid #333; }
-        .map-container iframe { width: 100%; height: 380px; border: 0; border-radius: 12px; }
-        
-        .whatsapp-fixed { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; padding: 15px; border-radius: 50%; z-index: 1000; }
-        @media (max-width: 768px) { nav { display: none; } .portfolio-grid { grid-template-columns: 1fr; } }
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 100%;
+        }
+
+        .logo-img {
+            height: 42px;
+            max-width: 50px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            mix-blend-mode: screen;
+            filter: brightness(1.2) contrast(1.1);
+            display: block;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.93)), 
+                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.9);
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-yellow);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: #000;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s transform ease;
+            box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3);
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            margin: 10px auto 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 40px 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* DÜZELTİLEN FOTOĞRAF GALERİSİ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            background: #000; /* Koyu arka plan */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px; /* Fotoğrafı kutu içinde uzaklaştırır */
+            transition: 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .portfolio-item:hover {
+            border-color: var(--accent-yellow);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 320px; 
+            object-fit: contain; /* Fotoğrafın tamamını gösterir, kesmez */
+            display: block;
+            border-radius: 6px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .social-media-box {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(18, 18, 18, 0.8);
+            color: var(--text-light);
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .social-btn.instagram:hover { border-color: #e1306c; color: #e1306c; }
+        .social-btn.tiktok:hover { border-color: #ff0050; color: #ff0050; }
+        .social-btn.facebook:hover { border-color: #1877f2; color: #1877f2; }
+
+        .map-container iframe {
+            width: 100%;
+            height: 380px;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-fixed:hover { transform: scale(1.1); }
+
+        footer {
+            background-color: rgba(11, 11, 11, 0.95);
+            padding: 25px 5%;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            border-top: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="brand-container">
-            <img class="logo-img" src="https://i.ibb.co/MkGMhJS2/Whats-App-mage-2026-06-13-at-16-00-5sa9.jpg" alt="Logo">
+            <img class="logo-img" src="https://i.ibb.co/MkGMhJS2/Whats-App-mage-2026-06-13-at-16-00-5sa9.jpg" alt="AUTOCARA Logo">
             <div class="logo">Autocara</div>
         </div>
-        <nav><a href="#hizmetler">Hizmetler</a><a href="#portfolyo">Öncesi / Sonrası</a><a href="#iletisim">İletişim</a></nav>
+        <nav>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#portfolyo">Öncesi / Sonrası</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Aracınızın Orijinalliğini Koruyun</h1>
-            <p>Profesyonel Boyasız Göçük Onarımı ve Plastik Kaynağı.</p>
-            <a href="https://wa.me/message/W2IYK35W2RFED1" class="btn-main">📸 Fotoğraf Gönder, Fiyat Al</a>
+            <h1>Aracınızın Orijinalliğini Koruyun,<br><span>Değerini Kaybettirmeyin.</span></h1>
+            <p>Profesyonel Boyasız Göçük Onarımı (PDR) ve yüksek mukavemetli Plastik Kaynağı işleriniz için Balıkesir'deki güvenilir adresiniz.</p>
+            <a href="https://wa.me/message/W2IYK35W2RFED1" class="btn-main" target="_blank">📸 Fotoğraf Gönder, Fiyat Al</a>
         </div>
     </section>
 
     <section id="hizmetler">
         <h2>Neler Yapıyoruz?</h2>
         <div class="services-grid">
-            <div class="service-card"><h3>PDR</h3><p>Boyasız göçük onarımı.</p></div>
-            <div class="service-card"><h3>Plastik Kaynak</h3><p>Tampon ve bakalit onarımı.</p></div>
-            <div class="service-card"><h3>3D Üretim</h3><p>Özel parça üretimi.</p></div>
+            <div class="service-card">
+                <h3>Boyasız Göçük Onarımı (PDR)</h3>
+                <p>Dolu hasarları, park yeri sürtmeleri ve kordon üzerindeki keskin göçükler, boyaya zarar verilmeden özel teknik ve pürüzsüz hat kontrolüyle (line board kalitesinde) orijinal formuna getirilir. Aracınız değer kaybetmez.</p>
+            </div>
+            <div class="service-card">
+                <h3>Plastik Tamiri & Kaynak</h3>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+            </div>
+            <div class="service-card">
+                <h3>3D Yedek Parça Üretimi</h3>
+                <p>Piyasada bulunması zor, üretimi durmuş ya da yüksek maliyetli olan kırık plastik parçaları, tırnakları ve özel aparatları ileri teknoloji 3D modelleme ve dayanıklı baskı teknikleriyle sıfırdan üretiyoruz.</p>
+            </div>
         </div>
     </section>
 
     <section id="portfolyo">
         <h2>İşçilik Kalitemiz</h2>
         <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg"></div>
-            <div class="portfolio-item"><img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg"></div>
-            <div class="portfolio-item"><img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg"></div>
-            <div class="portfolio-item"><img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg"></div>
+            <div class="portfolio-item"><img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Hasar"></div>
+            <div class="portfolio-item"><img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Onarım"></div>
+            <div class="portfolio-item"><img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Hasar"></div>
+            <div class="portfolio-item"><img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Onarım"></div>
         </div>
     </section>
 
@@ -83,16 +375,45 @@
         <h2>İletişim & Konum</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Adres & İletişim</h3>
-                <p>Gümüşçeşme Mah. 14. Cumhuriyet Cad. No:12A, Balıkesir</p>
-                <p>Tel: +90 551 890 40 64</p>
+                <h3>İş Yeri Bilgilerimiz</h3>
+                <p><strong>Adres:</strong> Gümüşçeşme Mahallesi, 14. Cumhuriyet Caddesi No:12A (Emlak Konutları Arkası), Altıeylül / BALIKESİR</p>
+                <p><strong>Telefon:</strong> +90 (551) 890 40 64</p>
+                <p><strong>Çalışma Saatleri:</strong> Pazartesi - Pazar: 09:00 - 19:00</p>
+                <div class="social-media-box">
+                    <p>Sosyal Medyada Biz:</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/autocara10" target="_blank" class="social-btn instagram">📷 Instagram</a>
+                        <a href="https://www.tiktok.com/@autocara10" target="_blank" class="social-btn tiktok">🎵 TikTok</a>
+                        <a href="https://www.facebook.com/profile.php?id=61590692215096" target="_blank" class="social-btn facebook">👥 Facebook</a>
+                    </div>
+                </div>
             </div>
-            <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12649.364697766245!2d27.897905212706153!3d39.64261399823846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b7014d2ebfffa5%3A0x76c3d02603888b0b!2zQXV0b2NhcmEgQm95YXSEsXogR8O2w6fDvGsgT25hcsSxbQ!5e0!3m2!1str!2str!4v1781447663755!5m2!1str!2str"></iframe></div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12649.364697766245!2d27.897905212706153!3d39.64261399823846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b7014d2ebfffa5%3A0x76c3d02603888b0b!2zQXV0b2NhcmEgQm95YXSEsXogR8O2w6fDvGsgT25hcsSxbQ!5e0!3m2!1str!2str!4v1781447663755!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
-    <a href="https://wa.me/message/W2IYK35W2RFED1" class="whatsapp-fixed">
+    <a href="https://wa.me/message/W2IYK35W2RFED1" class="whatsapp-fixed" target="_blank">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
     </a>
+
+    <footer>
+        <p>© 2026 <span>AUTOCARA</span> Boyasız Göçük Onarım. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const targetSection = document.getElementById('hizmetler');
+                if(targetSection) {
+                    const headerOffset = 70; 
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            }, 1200); 
+        });
+    </script>
 </body>
 </html>

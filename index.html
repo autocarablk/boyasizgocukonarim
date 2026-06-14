@@ -26,7 +26,7 @@
 
         /* Tüm Cihazlar İçin Güvenli Arka Plan Yapısı */
         body {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.96)), 
                         url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png');
             background-repeat: no-repeat;
             background-position: center top;
@@ -35,6 +35,7 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Üst Menü (Header) */
@@ -43,7 +44,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(18, 18, 18, 0.95);
+            background-color: rgba(18, 18, 18, 0.98);
             padding: 12px 5%;
             display: flex;
             justify-content: space-between;
@@ -57,27 +58,32 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            max-width: 100%;
         }
 
-        /* Yeni Logodan Siyah Arka Planı Ayıklayan CSS */
+        /* Logodan Siyah Arka Planı Ayıklayan ve Ekrana Sığdıran CSS */
         .logo-img {
-            height: 45px; /* Menü yüksekliğine göre ideal boyut */
+            height: 42px;
+            max-width: 50px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: screen; /* Siyah arka planı yok eder, logoyu transparan yapar */
-            filter: brightness(1.2) contrast(1.1); /* Logonun altın renklerini canlandırır */
+            flex-shrink: 0; /* Logonun mobilde ezilmesini önler */
+            mix-blend-mode: screen; /* Siyah arka planı temizler, sadece logoyu bırakır */
+            filter: brightness(1.2) contrast(1.1); /* Altın renk tonunu parlatır */
+            display: block;
         }
 
         /* Altın Varaklı Yazı Tasarımı */
         .logo {
             font-size: 24px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         nav a {
@@ -332,23 +338,38 @@
             }
         }
 
-        /* MOBİL UYUM */
+        /* MOBİL UYUM VE ARKA PLAN/LOGO OPTİMİZASYONU */
         @media (max-width: 768px) {
             body {
                 background-attachment: scroll; 
-                background-size: cover;
+                background-size: contain; /* Arka plan resmini mobil ekrana sığdırır */
+                background-position: center top; /* Ortalar ve yukarı hizalar */
             }
-            header { padding: 10px 4%; }
-            nav { display: none; }
-            .logo { font-size: 20px; letter-spacing: 1px; }
-            .logo-img { height: 38px; } /* Mobilde logonun taşmaması için boyut ayarı */
-            .brand-container { gap: 6px; }
-            .hero-content h1 { font-size: 28px; }
-            .hero-content p { font-size: 15px; }
+            header { 
+                padding: 10px 4%; 
+                justify-content: center; /* Mobilde logoyu tam ortalamak için */
+            }
+            nav { display: none; } /* Mobilde linkleri gizler, alanı genişletir */
+            
+            .brand-container { 
+                gap: 8px; 
+                justify-content: center;
+                width: 100%;
+            }
+            .logo { 
+                font-size: 22px; 
+                letter-spacing: 1px; 
+            }
+            .logo-img { 
+                height: 36px; /* Sığmama sorununa karşı ideal mobil yükseklik */
+                max-width: 45px;
+            } 
+            .hero-content h1 { font-size: 26px; }
+            .hero-content p { font-size: 14px; }
             .social-links { flex-direction: column; gap: 8px; }
             .social-btn { justify-content: center; }
-            .whatsapp-fixed { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            .whatsapp-fixed svg { width: 26px; height: 26px; }
+            .whatsapp-fixed { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .whatsapp-fixed svg { width: 24px; height: 24px; }
         }
     </style>
 </head>
@@ -383,7 +404,7 @@
             </div>
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
-                <p>Kırık veya çatlak tamponlar, far ayakları, paneller and iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
             </div>
             <div class="service-card">
                 <h3>3D Yedek Parça Üretimi</h3>

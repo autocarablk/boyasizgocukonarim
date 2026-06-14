@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUTOCARA | Boyasız Göçük Onarım & Plastik Kaynağı</title>
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Temel Renkler ve Font */
@@ -56,19 +57,14 @@
         .brand-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        /* Altın Varaklı Araba Vektörü Maskesi */
-        .logo-icon {
-            width: 35px;
-            height: 35px;
-            background: var(--gold-gradient);
-            -webkit-mask: url('https://i.ibb.co/ZpbR4KJz/Whats-App-mage-2026-06-13-at-16-00-59.jpg') no-repeat center center;
-            mask: url('https://i.ibb.co/ZpbR4KJz/Whats-App-mage-2026-06-13-at-16-00-59.jpg') no-repeat center center;
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+        /* Altın Varaklı SVG Araba Logosu */
+        .logo-svg {
+            width: 45px;
+            height: 32px;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.6));
         }
 
         /* Altın Varaklı Yazı Tasarımı */
@@ -343,8 +339,9 @@
             }
             header { padding: 12px 5%; }
             nav { display: none; }
-            .logo { font-size: 22px; }
-            .logo-icon { width: 30px; height: 30px; }
+            .logo { font-size: 22px; letter-spacing: 1px; }
+            .logo-svg { width: 35px; height: 25px; }
+            .brand-container { gap: 8px; }
             .hero-content h1 { font-size: 28px; }
             .hero-content p { font-size: 15px; }
             .social-links { flex-direction: column; gap: 8px; }
@@ -356,9 +353,42 @@
 </head>
 <body>
 
+    <!-- Tanımlamalar (SVG Renk Geçişi İçin) -->
+    <svg style="display: none;">
+        <defs>
+            <linearGradient id="svg-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#bf953f" />
+                <stop offset="25%" stop-color="#fcf6ba" />
+                <stop offset="50%" stop-color="#b38728" />
+                <stop offset="75%" stop-color="#fbf5b7" />
+                <stop offset="100%" stop-color="#aa771c" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Üst Menü -->
     <header>
         <div class="brand-container">
-            <div class="logo-icon"></div>
+            <!-- Çizdiğimiz Kanatlı Araba Logosu (SVG) -->
+            <svg class="logo-svg" viewBox="0 0 100 60" fill="url(#svg-gold)">
+                <!-- Sol Kanat Çizgileri -->
+                <path d="M 5 22 C 15 20, 30 25, 38 28 C 30 27, 15 24, 8 26 Z" />
+                <path d="M 10 29 C 20 28, 32 32, 38 34 C 28 32, 18 31, 12 32 Z" />
+                <path d="M 15 36 C 22 35, 30 38, 36 40 C 28 38, 22 38, 17 38 Z" />
+                
+                <!-- Sağ Kanat Çizgileri -->
+                <path d="M 95 22 C 85 20, 70 25, 62 28 C 70 27, 85 24, 92 26 Z" />
+                <path d="M 90 29 C 80 28, 68 32, 62 34 C 72 32, 82 31, 88 32 Z" />
+                <path d="M 85 36 C 78 35, 70 38, 64 40 C 72 38, 78 38, 83 38 Z" />
+                
+                <!-- Orta Araba Silüeti -->
+                <path d="M 38 33 C 40 23, 44 20, 50 20 C 56 20, 60 23, 62 33 C 65 34, 66 36, 66 38 C 66 42, 62 44, 50 44 C 38 44, 34 42, 34 38 C 34 36, 35 34, 38 33 Z" />
+                <!-- Ön Cam Detayı -->
+                <path d="M 43 30 C 45 25, 47 24, 50 24 C 53 24, 55 25, 57 30 C 52 29, 48 29, 43 30 Z" fill="#121212" />
+                <!-- Farlar -->
+                <circle cx="40" cy="37" r="2" />
+                <circle cx="60" cy="37" r="2" />
+            </svg>
             <div class="logo">Autocara</div>
         </div>
         <nav>
@@ -368,6 +398,7 @@
         </nav>
     </header>
 
+    <!-- Giriş Ekranı -->
     <section class="hero">
         <div class="hero-content">
             <h1>Aracınızın Orijinalliğini Koruyun,<br><span>Değerini Kaybettirmeyin.</span></h1>
@@ -376,6 +407,7 @@
         </div>
     </section>
 
+    <!-- Hizmetlerimiz Bölümü -->
     <section id="hizmetler">
         <h2>Neler Yapıyoruz?</h2>
         <div class="services-grid">
@@ -394,12 +426,14 @@
         </div>
     </section>
 
+    <!-- Öncesi / Sonrası Bölümü -->
     <section id="portfolyo" style="padding: 60px 5%;">
         <h2>İşçilik Kalitemiz</h2>
         <p style="color: var(--text-gray); margin-bottom: 40px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Atölyemizde teslim aldığımız hasarlı araçların onarım sonrası kusursuz değişimi.</p>
         
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1000px; margin: 0 auto;">
             
+            <!-- 1. GÖRSEL ÇİFTİ -->
             <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
@@ -413,6 +447,7 @@
                 </div>
             </div>
 
+            <!-- 2. GÖRSEL ÇİFTİ -->
             <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
@@ -429,6 +464,7 @@
         </div>
     </section>
 
+    <!-- İletişim Bölümü -->
     <section id="iletisim">
         <h2>İletişim & Konum</h2>
         <div class="contact-container">
@@ -439,6 +475,7 @@
                 <p><strong>Çalışma Saatleri:</strong> Pazartesi - Pazar: 09:00 - 19:00</p>
                 <p style="margin-top: 15px; font-size: 14px; color: var(--accent-yellow);">* Gelmeden önce WhatsApp üzerinden fotoğraf göndererek yoğunluk durumu ve ön fiyat bilgisi alabilirsiniz.</p>
                 
+                <!-- Sosyal Medya Butonları -->
                 <div class="social-media-box">
                     <p>Sosyal Medyada Biz:</p>
                     <div class="social-links">
@@ -455,12 +492,14 @@
         </div>
     </section>
 
+    <!-- Sabit Ekran WhatsApp Butonu -->
     <a href="https://wa.me/message/W2IYK35W2RFED1" class="whatsapp-fixed" target="_blank" title="WhatsApp ile İletişime Geç">
         <svg viewBox="0 0 24 24">
             <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
         </svg>
     </a>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 <span>AUTOCARA</span> Boyasız Göçük Onarım. Tüm Hakları Saklıdır.</p>
     </footer>

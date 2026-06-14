@@ -207,7 +207,7 @@
             font-size: 14px;
         }
 
-        /* 2x2 BAĞIMSIZ FOTOĞRAF GALERİSİ */
+        /* FOTOĞRAF GALERİSİ DÜZENİ */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
@@ -238,29 +238,6 @@
             height: 340px; 
             object-fit: cover;
             display: block;
-        }
-
-        /* Sadece Net "ÖNCESİ" ve "SONRASI" Etiketleri */
-        .status-badge {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            padding: 5px 14px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        .status-badge.before {
-            background: rgba(220, 53, 69, 0.95); /* Kırmızı Öncesi Etiketi */
-            color: #fff;
-        }
-
-        .status-badge.after {
-            background: var(--accent-yellow); /* Parlak Sarı Sonrası Etiketi */
-            color: #000;
         }
 
         /* İletişim Bölümü */
@@ -464,7 +441,7 @@
             </div>
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
-                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller and iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
             </div>
             <div class="service-card">
                 <h3>3D Yedek Parça Üretimi</h3>
@@ -481,26 +458,22 @@
             
             <!-- 1. Fotoğraf (Üst Satır - Sol) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Göçük Öncesi">
-                <span class="status-badge before">ÖNCESİ</span>
+                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Hasar">
             </div>
 
             <!-- 2. Fotoğraf (Üst Satır - Sağ) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Göçük Sonrası">
-                <span class="status-badge after">SONRASI</span>
+                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Onarım">
             </div>
 
             <!-- 3. Fotoğraf (Alt Satır - Sol) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Hasar Öncesi">
-                <span class="status-badge before">ÖNCESİ</span>
+                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Hasar">
             </div>
 
             <!-- 4. Fotoğraf (Alt Satır - Sağ) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Tamir Sonrası">
-                <span class="status-badge after">SONRASI</span>
+                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Onarım">
             </div>
 
         </div>
@@ -546,7 +519,6 @@
     <!-- AÇILIŞTA OTOMATİK AŞAĞI KAYDIRMA SCRIPTI -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            // Kullanıcı siteye girdiğinde 1.2 saniye boyunca logoyu görür, ardından akıcı şekilde hizmetler alanına kayar.
             setTimeout(() => {
                 const targetSection = document.getElementById('hizmetler');
                 if(targetSection) {

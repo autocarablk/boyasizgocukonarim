@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUTOCARA | Boyasız Göçük Onarım & Plastik Kaynağı</title>
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Temel Renkler ve Font */
@@ -32,7 +31,7 @@
             background-repeat: no-repeat;
             background-position: center top;
             background-size: cover;
-            background-attachment: scroll; /* Mobilde akıcı döşeme */
+            background-attachment: scroll; 
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
@@ -45,7 +44,7 @@
             left: 0;
             width: 100%;
             background-color: rgba(18, 18, 18, 0.95);
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,7 +52,26 @@
             border-bottom: 1px solid #2a2a2a;
         }
 
-        /* Altın Varaklı Logo Tasarımı */
+        /* Logo ve Araba Vektörü Kapsayıcısı */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Altın Varaklı Araba Vektörü Maskesi */
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--gold-gradient);
+            -webkit-mask: url('https://i.ibb.co/ZpbR4KJz/Whats-App-mage-2026-06-13-at-16-00-59.jpg') no-repeat center center;
+            mask: url('https://i.ibb.co/ZpbR4KJz/Whats-App-mage-2026-06-13-at-16-00-59.jpg') no-repeat center center;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Altın Varaklı Yazı Tasarımı */
         .logo {
             font-size: 26px;
             font-weight: 700;
@@ -320,11 +338,13 @@
         /* MOBİL UYUM */
         @media (max-width: 768px) {
             body {
-                background-attachment: scroll; /* Mobilde siyah ekranı önleyen akıcı döşeme */
+                background-attachment: scroll; 
                 background-size: cover;
             }
-            header { padding: 15px 5%; }
+            header { padding: 12px 5%; }
             nav { display: none; }
+            .logo { font-size: 22px; }
+            .logo-icon { width: 30px; height: 30px; }
             .hero-content h1 { font-size: 28px; }
             .hero-content p { font-size: 15px; }
             .social-links { flex-direction: column; gap: 8px; }
@@ -336,9 +356,11 @@
 </head>
 <body>
 
-    <!-- Üst Menü -->
     <header>
-        <div class="logo">Autocara</div>
+        <div class="brand-container">
+            <div class="logo-icon"></div>
+            <div class="logo">Autocara</div>
+        </div>
         <nav>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#portfolyo">Öncesi / Sonrası</a>
@@ -346,7 +368,6 @@
         </nav>
     </header>
 
-    <!-- Giriş Ekranı -->
     <section class="hero">
         <div class="hero-content">
             <h1>Aracınızın Orijinalliğini Koruyun,<br><span>Değerini Kaybettirmeyin.</span></h1>
@@ -355,7 +376,6 @@
         </div>
     </section>
 
-    <!-- Hizmetlerimiz Bölümü -->
     <section id="hizmetler">
         <h2>Neler Yapıyoruz?</h2>
         <div class="services-grid">
@@ -365,7 +385,7 @@
             </div>
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
-                <p>Kırık veya çatlak tamponlar, far ayakları, paneller and iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
             </div>
             <div class="service-card">
                 <h3>3D Yedek Parça Üretimi</h3>
@@ -374,14 +394,12 @@
         </div>
     </section>
 
-    <!-- Öncesi / Sonrası Bölümü -->
     <section id="portfolyo" style="padding: 60px 5%;">
         <h2>İşçilik Kalitemiz</h2>
         <p style="color: var(--text-gray); margin-bottom: 40px; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Atölyemizde teslim aldığımız hasarlı araçların onarım sonrası kusursuz değişimi.</p>
         
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1000px; margin: 0 auto;">
             
-            <!-- 1. GÖRSEL ÇİFTİ -->
             <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
@@ -395,7 +413,6 @@
                 </div>
             </div>
 
-            <!-- 2. GÖRSEL ÇİFTİ -->
             <div style="background: rgba(30, 30, 30, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; width: 100%; max-width: 450px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div style="display: flex;">
                     <div style="flex: 1; position: relative;">
@@ -412,7 +429,6 @@
         </div>
     </section>
 
-    <!-- İletişim Bölümü -->
     <section id="iletisim">
         <h2>İletişim & Konum</h2>
         <div class="contact-container">
@@ -423,7 +439,6 @@
                 <p><strong>Çalışma Saatleri:</strong> Pazartesi - Pazar: 09:00 - 19:00</p>
                 <p style="margin-top: 15px; font-size: 14px; color: var(--accent-yellow);">* Gelmeden önce WhatsApp üzerinden fotoğraf göndererek yoğunluk durumu ve ön fiyat bilgisi alabilirsiniz.</p>
                 
-                <!-- Sosyal Medya Butonları -->
                 <div class="social-media-box">
                     <p>Sosyal Medyada Biz:</p>
                     <div class="social-links">
@@ -440,14 +455,12 @@
         </div>
     </section>
 
-    <!-- Sabit Ekran WhatsApp Butonu -->
     <a href="https://wa.me/message/W2IYK35W2RFED1" class="whatsapp-fixed" target="_blank" title="WhatsApp ile İletişime Geç">
         <svg viewBox="0 0 24 24">
             <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
         </svg>
     </a>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 <span>AUTOCARA</span> Boyasız Göçük Onarım. Tüm Hakları Saklıdır.</p>
     </footer>

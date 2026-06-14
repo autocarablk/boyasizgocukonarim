@@ -207,7 +207,7 @@
             font-size: 14px;
         }
 
-        /* FOTOĞRAF GALERİSİ DÜZENİ (YAZISIZ VE AYRI KUTULAR) */
+        /* 2x2 BAĞIMSIZ FOTOĞRAF GALERİSİ */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
@@ -238,6 +238,29 @@
             height: 340px; 
             object-fit: cover;
             display: block;
+        }
+
+        /* Sadece Net "ÖNCESİ" ve "SONRASI" Etiketleri */
+        .status-badge {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .status-badge.before {
+            background: rgba(220, 53, 69, 0.95); /* Kırmızı Öncesi Etiketi */
+            color: #fff;
+        }
+
+        .status-badge.after {
+            background: var(--accent-yellow); /* Parlak Sarı Sonrası Etiketi */
+            color: #000;
         }
 
         /* İletişim Bölümü */
@@ -387,7 +410,7 @@
             /* Mobil Açılışta Arka Plan Logosunu Tam Ortaya Almak İçin Kurallar */
             .hero {
                 background-attachment: scroll;
-                background-position: center center; /* Ekranı tam dikey ve yatay ortalar */
+                background-position: center center; 
                 background-size: cover; 
             }
 
@@ -456,20 +479,28 @@
         
         <div class="portfolio-grid">
             
+            <!-- 1. Fotoğraf (Üst Satır - Sol) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Göçük Öncesi Durum">
+                <img src="https://i.ibb.co/7xjg0TVN/Whats-App-mage-2026-06-14-at-17-14-30-1.jpg" alt="Göçük Öncesi">
+                <span class="status-badge before">ÖNCESİ</span>
             </div>
 
+            <!-- 2. Fotoğraf (Üst Satır - Sağ) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Onarım Sonrası Kusursuz Görünüm">
+                <img src="https://i.ibb.co/JWHjz3RB/Whats-App-mage-2026-06-14-at-17-14-30-2.jpg" alt="Göçük Sonrası">
+                <span class="status-badge after">SONRASI</span>
             </div>
 
+            <!-- 3. Fotoğraf (Alt Satır - Sol) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Parça Hasarlı Durum">
+                <img src="https://i.ibb.co/7wfTcPW/Whats-App-mage-2026-06-14-at-17-14-30.jpg" alt="Plastik Hasar Öncesi">
+                <span class="status-badge before">ÖNCESİ</span>
             </div>
 
+            <!-- 4. Fotoğraf (Alt Satır - Sağ) -->
             <div class="portfolio-item">
-                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Kaynak Sonrası Durum">
+                <img src="https://i.ibb.co/wr4G3XSg/Whats-App-mage-2026-06-14-at-17-16-21.jpg" alt="Plastik Tamir Sonrası">
+                <span class="status-badge after">SONRASI</span>
             </div>
 
         </div>
@@ -501,6 +532,7 @@
         </div>
     </section>
 
+    <!-- WhatsApp Sabit İletişim Butonu -->
     <a href="https://wa.me/message/W2IYK35W2RFED1" class="whatsapp-fixed" target="_blank" title="WhatsApp ile İletişime Geç">
         <svg viewBox="0 0 24 24">
             <path d="M6.62 10.79a15.15 15.15 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -511,13 +543,13 @@
         <p>© 2026 <span>AUTOCARA</span> Boyasız Göçük Onarım. Tüm Hakları Saklıdır.</p>
     </footer>
 
+    <!-- AÇILIŞTA OTOMATİK AŞAĞI KAYDIRMA SCRIPTI -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            // Kullanıcı siteye girdiğinde 1.2 saniye logoyu/başlığı görür, ardından akıcı bir şekilde 'hizmetler' alanına kayar.
+            // Kullanıcı siteye girdiğinde 1.2 saniye boyunca logoyu görür, ardından akıcı şekilde hizmetler alanına kayar.
             setTimeout(() => {
                 const targetSection = document.getElementById('hizmetler');
                 if(targetSection) {
-                    // Header menüsünün yüksekliğini hesaba katarak tam hizada durmasını sağlar
                     const headerOffset = 70; 
                     const elementPosition = targetSection.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;

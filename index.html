@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boyasız Göçük Onarım & Plastik Kaynağı</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Temel Renkler ve Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --accent-yellow: #ccff00; /* PDR Işık Sarısı */
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Üst Menü (Header) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-yellow);
+        }
+
+        /* Giriş Ekranı (Hero Section) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1920') no-repeat center center/cover;
+            /* Not: Yukarıdaki görsel geçicidir, dükkan içi görselinizle değiştirebilirsiniz */
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-yellow);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Butonlar */
+        .btn-main {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: #000;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s transform ease;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+        }
+
+        /* Sayfa Bölümleri Genel */
+        section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            margin: 10px auto 0 auto;
+        }
+
+        /* Hizmetlerimiz Bölümü */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Öncesi / Sonrası Alanı */
+        .portfolio-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+
+        .ba-slider-placeholder {
+            padding: 40px 20px;
+            color: var(--text-gray);
+        }
+
+        /* İletişim Bölümü */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        /* Sabit Sabit Sabit WhatsApp Butonu */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: 0.3s;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobil Uyum Düzenlemeleri */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; } /* Mobil menü sadeleşti */
+            .hero-content h1 { font-size: 30px; }
+            .hero-content p { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <header>
+        <div class="logo">Autocara<span></span></div>
+        <nav>
+            <a href="#hizmetler">Hizmetler</a>
+            <a href="#portfolyo">Öncesi / Sonrası</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
+    </header>
+
+    <!-- Giriş Ekranı -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Aracınızın Orijinalliğini Koruyun,<br><span>Değerini Kaybettirmeyin.</span></h1>
+            <p>Profesyonel Boyasız Göçük Onarımı (PDR) ve yüksek mukavemetli Plastik Kaynağı işleriniz için Balıkesir'deki güvenilir adresiniz.</p>
+            <!-- WhatsApp Yönlendirme Linki (Telefon numaranızı girin) -->
+            <a href="https://wa.me/905518904064text=Merhaba,%20aracımın%20hasar%20fotoğrafını%20gönderip%20bilgi%20almak%20istiyorum." class="btn-main" target="_blank">📸 Fotoğraf Gönder, Fiyat Al</a>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz Bölümü -->
+    <section id="hizmetler">
+        <h2>Neler Yapıyoruz?</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Boyasız Göçük Onarımı (PDR)</h3>
+                <p>Dolu hasarları, park yeri sürtmeleri ve kordon üzerindeki keskin göçükler, boyaya zarar verilmeden özel teknik ve pürüzsüz hat kontrolüyle (line board kalitesinde) orijinal formuna getirilir. Aracınız değer kaybetmez.</p>
+            </div>
+            <div class="service-card">
+                <h3>Plastik Tamiri & Kaynak</h3>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Öncesi / Sonrası Bölümü -->
+    <section id="portfolyo" style="background-color: #1a1a1a;">
+        <h2>İşçilik Kalitemiz</h2>
+        <p style="color: var(--text-gray); margin-bottom: 30px;">Atölyemizde teslim aldığımız hasarlı araçların onarım sonrası kusursuz değişimi.</p>
+        <div class="portfolio-box">
+            <div class="ba-slider-placeholder">
+                <p>💡 <strong>Buraya Gelecek Görseller:</strong></p>
+                <p>Dükkanda yaptığınız en iyi işlerden "Önce" ve "Sonra" fotoğraflarını yan yana veya alt alta buraya ekleyebilirsiniz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <section id="iletisim">
+        <h2>İletişim & Konum</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Dükkan Bilgileri</h3>
+                <p><strong>Adres:</strong> Gümüşçeşme Mahallesi 14Cumhuriyet Caddesi no:12A (Emlak Konutları Arkası), BALIKESİR / Altıeylül </p>
+                <p><strong>Telefon:</strong> +90 (551) 890 40 64</p>
+                <p><strong>Çalışma Saatleri:</strong> Pazartesi - Pazar: 09:00 - 19:00</p>
+                <p style="margin-top: 15px; font-size: 14px; color: var(--accent-yellow);">* Gelmeden önce WhatsApp üzerinden fotoğraf göndererek yoğunluk durumu ve ön fiyat bilgisi alabilirsiniz.</p>
+            </div>
+            <div class="map-container">
+                <!-- Google Haritalar'dan aldığınız ücretsiz dükkan embed kodunu buraya yapıştırabilirsiniz -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194936.42598380847!2d27.75549052569503!3d39.64805721617462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b62fbb13b94a97%3A0x7d6f5fb88b39d1b0!2sBal%C4%B1kesir!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sabit Ekran WhatsApp Butonu -->
+    <a href="https://wa.me/905551234567?text=Merhaba,%20aracımın%20hasar%20fotoğrafını%20gönderip%20bilgi%20almak%20istiyorum." class="whatsapp-fixed" target="_blank" title="WhatsApp ile İletişime Geç">
+        WP
+    </a>
+
+</body>
+</html>

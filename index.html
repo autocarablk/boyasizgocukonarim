@@ -25,11 +25,14 @@
             --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
         }
 
-        /* Varsayılan / Mobil Arka Plan Ayarı */
+        /* Tüm Cihazlar İçin Güvenli Arka Plan Yapısı */
         body {
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)), 
-                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center top;
-            background-size: cover; /* Görseli ekranı kaplayacak ve aşağı kadar döşeyecek şekilde büyütür */
+                        url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            background-attachment: scroll; /* Mobilde akıcı döşeme */
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
@@ -306,11 +309,10 @@
             font-weight: 700;
         }
 
-        /* MASAÜSTÜ VE BÜYÜK EKRANLAR İÇİN PARALLAX AYARI */
+        /* BİLGİSAYAR / BÜYÜK EKRANLAR İÇİN OPTİMİZASYON */
         @media (min-width: 769px) {
             body {
-                background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), 
-                            url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center center fixed;
+                background-attachment: fixed; /* Bilgisayarda akıcı parallax görünümü */
                 background-size: cover;
             }
         }
@@ -318,11 +320,8 @@
         /* MOBİL UYUM */
         @media (max-width: 768px) {
             body {
-                /* Mobilde de görselin aşağı kadar uzanmasını ve arka planı kaplamasını sağlar */
-                background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
-                            url('https://i.ibb.co/Y4DB7Kcc/Gemini-Generated-mage-e34t0te34t0te34t.png') no-repeat center top;
+                background-attachment: scroll; /* Mobilde siyah ekranı önleyen akıcı döşeme */
                 background-size: cover;
-                background-attachment: scroll; 
             }
             header { padding: 15px 5%; }
             nav { display: none; }
@@ -366,7 +365,7 @@
             </div>
             <div class="service-card">
                 <h3>Plastik Tamiri & Kaynak</h3>
-                <p>Kırık veya çatlak tamponlar, far ayakları, paneller ve iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
+                <p>Kırık veya çatlak tamponlar, far ayakları, paneller and iç bakalit trim parçaları, yapısal bütünlüğü ve esnekliği korunarak profesyonel kaynak teknikleriyle tamir edilir. Yüksek değişim maliyetlerine son verin.</p>
             </div>
             <div class="service-card">
                 <h3>3D Yedek Parça Üretimi</h3>
